@@ -6,6 +6,7 @@ Clone o projeto, crie um arquivo ".env" na pasta raiz e adicione os seguintes va
 
 - PORT (Porta que o servidor deve rodar)
 - SS (Secret que será usado pelo jsonwebtoken)
+- MONGOURI (URL do seu banco MongoDB)
 
 Rode os comandos:
 
