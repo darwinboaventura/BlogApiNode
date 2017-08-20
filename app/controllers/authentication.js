@@ -53,7 +53,7 @@ module.exports = function(app) {
 		},
 		isAuthorized: function(model, field) {
 			return function(req, res, next) {
-				var author = req.decoded._doc._id;
+				var toCompare = req.decoded._doc._id;
 				var GenericModel = app.models[model];
 
 				GenericModel.findById(req.params.id || req.body.id, function(err, document) {
@@ -66,7 +66,7 @@ module.exports = function(app) {
 					if (!document) {
 						res.status(404).end();
 					} else {
-						if (document[field] != author) {
+						if (document[field] != toCompare) {
 							res.status(401).json("You don't have permission.");
 						} else {
 							next();
