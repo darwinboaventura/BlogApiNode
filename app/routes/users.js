@@ -3,7 +3,6 @@ module.exports = function(app) {
 	var Authentication = app.controllers.authentication;
 
 	app.route('/users')
-		.get(Users.getAll)
 		.put(Authentication.isAuthenticated, Authentication.isAuthorized('user', '_id'), Users.update)
 		.post(Users.create);
 

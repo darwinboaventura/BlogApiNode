@@ -5,10 +5,16 @@ module.exports = function() {
 	var load = require('express-load');
 	var bodyParser = require('body-parser');
 
+    app.set('port', process.env.PORT);
+    app.set('superSecret', process.env.SS);
+
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(bodyParser.json());
-	app.set('port', process.env.PORT);
-	app.set('superSecret', process.env.SS);
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
 
 	load('models', {cwd: 'app'})
 	.then('controllers')
