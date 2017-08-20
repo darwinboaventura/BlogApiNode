@@ -1,6 +1,6 @@
 # BlogApiNode
 
-Exemplo de uma API simples (blog) com NodeJS.
+Exemplo de uma API simples usando NodeJS e MongoDB.
 
 Clone o projeto, crie um arquivo ".env" na pasta raiz e adicione os seguintes valores ao arquivo:
 
